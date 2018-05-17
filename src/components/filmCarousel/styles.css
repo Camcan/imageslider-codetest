@@ -1,13 +1,10 @@
-._app_19m8j_1 {
-	background: #000
-}
-._container_1e0t0_1 {
+.container {
 	position: relative;
 	width: 100%;
 }
 
 
-._textOverlay_1e0t0_7 {
+.textOverlay {
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -18,23 +15,14 @@
 	z-index: 1;
 }
 
-._title_1e0t0_18 {
+.title {
 	margin: 180px 20px 20px 50px;
 	min-width: 300px;
 }
 
-._synopsis_1e0t0_23 p {
+.synopsis p {
 	min-width: 200px;
 	max-width: 300px;
 }
 
 	
-._container_112ky_1 {
-	border: 3px green;
-	overflow: hidden;
-	position: relative;
-}
-
-._container_112ky_1 img {
-	width: 100%;
-}

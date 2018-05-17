@@ -1,0 +1,9 @@
+.container {
+	border: 3px green;
+	overflow: hidden;
+	position: relative;
+}
+
+.container img {
+	width: 100%;
+}
