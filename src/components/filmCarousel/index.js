@@ -1,6 +1,7 @@
 import React from 'react'
 import Styles from './styles.css';
 import ImageSlider from '../imageSlider';
+import FilmInformation from './filmInformation.js';
 
 class FilmCarousel extends React.Component {
     	constructor(){
@@ -9,27 +10,36 @@ class FilmCarousel extends React.Component {
 			index: 0
 		}
 	}
-	renderText(i){
-		let f = this.props.data[i];
-		return (
-			<div className={Styles.textOverlay}>
-				<div className={Styles.title}>
-							
-					<a href={f.link}>
-						<h2>{f.title}</h2>
-					</a>
-				</div>
-				<div className={Styles.synopsis}>
-					<p>{f.synopsis}</p>
-				</div>
-			</div>
-		)
+	animate(direction, arr){
+		let newIndex = this.state.index;
+		switch(direction){
+				case 'next': newIndex++
+					break
+				case 'prev': newIndex--
+					break
+		};
+		if ((-1 < newIndex && newIndex < arr.length)){
+			console.log("newIndex:", newIndex)
+			this.setState({
+				index: newIndex
+			});
+		};
+		console.log("Animating:", direction)
 	}
 	render() {
         	return ( 
-        		<div className={Styles.container}>
-				{this.renderText(this.state.index)}	
-				<ImageSlider data={this.props.data} index={this.state.index}/>
+        		<div className={Styles.container} onClick={()=>this.animate('next', this.props.data)}>
+				<FilmInformation 
+					data={this.props.data} 
+					index={this.state.index} 
+					transitionTime={3000} 
+				/>
+				<ImageSlider 
+					data={this.props.data} 
+					index={this.state.index} 
+					transitionTime={700} 
+					transitionType={'fade'}
+				/>
 			</div>
 		);
     	}

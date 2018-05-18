@@ -2,22 +2,65 @@ import React from 'react'
 import Styles from './styles.css';
 
 class ImageSlider extends React.Component {
-    	constructor(){
-		super();
+    	constructor(props){
+		super(props);
 		this.state = {
 			index: 0
 		}
+		this.updateDimensions = this.updateDimensions.bind(this);
+	}
+	componentWillReceiveProps(newProps){
+		if (newProps != this.props) {
+			this.animate(newProps.index);
+		}
+	}
+	componentDidMount(){
+		let containerWidth = document.getElementsByClassName(Styles.container)[0].offsetWidth;
+		this.setState({
+			index: this.state.index,
+			containerWidth: containerWidth
+		})
+		 window.addEventListener("resize", this.updateDimensions);	
+	}
+	componentWillUnmount(){
+		window.removeEventListener("resize", this.updateDimensions)
+	}
+	updateDimensions(){
+		this.animate(this.state.index);
+		this.componentDidMount();
+	}
+	animate(i){
+		this.setState({transition:true})
+		let containerWidth = document.getElementsByClassName(Styles.container)[0].offsetWidth;
+		setTimeout(()=>this.setState({
+			index: i,
+			offset: i*this.state.containerWidth,
+			transition: false
+		}), this.props.transitionTime || 700);
 	}
 	renderImages(){
-		let i = this.props.data[0];
-		return (
-			<img src={i.imageurl} title={i.title} />
-		)
+		return this.props.data.map((i)=>{
+			return <div className={Styles.img} style={{
+				width: this.state.containerWidth + "px"
+			}}>
+				<img src={i.imageurl} title={i.title}/>
+			</div>
+		});
 	}
-	render() {
-        	return ( 
-        		<div className={Styles.container}>
-				{this.renderImages()}
+	render() { 
+		const imageRowClass = [
+			Styles.images, 
+			(this.state.transition) ? Styles.animate : "",
+			(this.props.transitionType) ? Styles[this.props.transitionType] : ""
+		].join(" ")
+		return ( 
+        		<div className={Styles.container} style={{width: this.props.width || "100%", height: this.props.height || "100%"}}>
+				<div className={imageRowClass} style={{
+					width: this.state.containerWidth*this.props.data.length + "px", 
+					right: this.state.offset + "px"
+				}}>
+					{this.renderImages()}
+				</div>
 			</div>
 		);
     	}
