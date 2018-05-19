@@ -1,10 +1,11 @@
 .container {
 	position: relative;
-	min-height: 200px;
+	min-height: 300px;
 }
 
 .imageSliderContainer { 
-	width: 70%;
+	height: 296px;
+	width: 90%;
 	float: left;
 	position: relative;
 	left: 100%;
@@ -35,8 +36,35 @@
 	min-height: 200px;
 }
 .brief {
-	height: fit-content;
-	width: 30%;
+	max-height: 200px;
+	transition: max-height 0.5s ease-in;
+	overflow: hidden;
+	width: 33%;
+}
+.brief p {
+	height: 100%;
+	white-space: pre-wrap;
+	overflow: hidden;
+	transition: color 0.7s ease-in;
+	background-image: linear-gradient(180deg, #000 70%, transparent 100%); 
+  	color:transparent;
+  	-webkit-background-clip: text;
+  	background-clip: text
+}
+.brief:hover {
+	max-height: 500px;;
+}
+.brief:hover p {
+	color: #000;
+	height: auto;
 }
 
-	
+
+@media screen and (min-width: 500px){
+	.container {
+		min-height: 300px;
+	}
+	.imageSliderContainer {
+		width: 66%
+	}
+}

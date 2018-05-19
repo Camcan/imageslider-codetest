@@ -44,7 +44,8 @@ class FilmCarousel extends React.Component {
 				style={{
 					height: this.config.height,
 					width: this.config.width,
-					background: this.config.foregroundColor}}
+					background: this.config.foregroundColor
+				}}
 			>
 				
 				<div className={Styles.imageSliderContainer} style={{
