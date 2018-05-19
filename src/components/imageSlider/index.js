@@ -48,17 +48,26 @@ class ImageSlider extends React.Component {
 		});
 	}
 	render() { 
-		const imageRowClass = [
-			Styles.images, 
-			(this.state.transition) ? Styles.animate : "",
-			(this.props.transitionType) ? Styles[this.props.transitionType] : ""
-		].join(" ")
+		const imageRow = {
+			class: [
+				Styles.images, 
+				(this.state.transition) ? Styles.animate : "",
+				(this.props.transitionType) ? Styles[this.props.transitionType] : ""
+			].join(" "),
+			styles: {
+				width: this.state.containerWidth*this.props.data.length + "px", 
+				right: this.state.offset + "px"
+			}
+		};
+		const containerStyles = {
+			background: this.props.fillColor || "#FFF",
+			width: this.props.width || "100%", 
+			height: this.props.height || "100%",
+			...this.props.containerStyles
+		};
 		return ( 
-        		<div className={Styles.container} style={{width: this.props.width || "100%", height: this.props.height || "100%"}}>
-				<div className={imageRowClass} style={{
-					width: this.state.containerWidth*this.props.data.length + "px", 
-					right: this.state.offset + "px"
-				}}>
+        		<div className={Styles.container} style={containerStyles}>
+				<div className={imageRow.class} style={imageRow.styles}>
 					{this.renderImages()}
 				</div>
 			</div>

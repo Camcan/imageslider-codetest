@@ -2,11 +2,13 @@ import React from 'react'
 import Styles from './styles.css';
 
 class FilmCarousel extends React.Component {
-    	constructor(){
-		super();
+    	constructor(props){
+		super(props);
 		this.state = {
-			index: 0
+			index: 0,
+			hide: true
 		}
+		this.renderText = this.renderText.bind(this);
 	}
 	componentWillReceiveProps(newProps){
 		if (newProps != this.props){
@@ -15,24 +17,30 @@ class FilmCarousel extends React.Component {
 	}
 	renderText(i){
 		this.setState({hide: true});
-		setTimeout(this.setState({
+			
+		setTimeout(()=>this.setState({
 			index: i,
 			hide: false
-		}), 1500);
+		}), this.props.transitionTime || 500);
+
 	}
 	render() {
-        	let f = this.props.data[this.props.index];
-		let overlayStyles = Styles.textOverlay;
-		overlayStyles += (this.state.hide) ? " " + Styles.hide : "";
+        	const f = this.props.data[this.state.index];
+		let overlayStyles = [
+			Styles.textOverlay,
+			(this.state.hide) ? Styles.hide : ""
+		].join(" ");
+
 		return (
 			<div className={overlayStyles}>
-				<div className={Styles.title}>
-							
+				<div className={Styles.titleInfo}>
 					<a href={"http://" + f.link}>
-						<h2>{f.title}</h2>
+											<h2>{f.title}</h2>
 					</a>
 				</div>
-				<div className={Styles.synopsis}>
+				<div className={Styles.brief}
+					style={{background: this.props.config.foregroundColor}}
+				>
 					<p>{f.synopsis}</p>
 				</div>
 			</div>

@@ -1,36 +1,42 @@
 .container {
 	position: relative;
-	width: 100%;
-}
-
-
-.textOverlay {
-	opacity: 1;
-	transition: opacity 1s;
-	height: 100%;
-	width: 100%;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-around;
-	align-items: center;
-	position: absolute;
-	z-index: 1;
-}
-.hide {
-	opacity: 0;
-}
-.title {
-	display: flex;
-	flex-flow: col nowrap;
-	align-items: flex-end;
-	margin-left: 50px;
-	min-width: 300px;
 	min-height: 200px;
 }
 
-.synopsis p {
-	min-width: 200px;
-	max-width: 300px;
+.imageSliderContainer { 
+	width: 70%;
+	float: left;
+	position: relative;
+	left: 100%;
+	margin-left: -100%;
+	overflow: hidden
+}
+.textOverlay {
+	margin-right: -100%;
+	opacity: 1;
+	transition: opacity 1s;
+	height: auto;
+	width: 100%;
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+.textOverlay.hide {
+	opacity: 0;
+}
+.titleInfo {
+	display: flex;
+	flex-flow: col nowrap;
+	align-items: flex-end;
+	min-width: 50%;
+	margin-left: 50px;
+	min-height: 200px;
+}
+.brief {
+	height: fit-content;
+	width: 30%;
 }
 
 	

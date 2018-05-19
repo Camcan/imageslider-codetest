@@ -12,7 +12,18 @@ class App extends React.Component {
     render() {
         return ( 
         	<div id="app" className={Styles.app}>
-			<FilmCarousel data={CarouselData} />
+			<div className={Styles.banner}>
+				<FilmCarousel 
+					data={CarouselData} 
+					width={"100%"}
+					height={"100%"}
+					imageBorderRadius={"100px"}
+					transitionTime={700}
+					backgroundColor={"#000"}
+					foregroundColor={"#DC143C"}
+					fontColor={"#FFF"}
+				/>
+			</div>
 		</div>
 	);
     }
