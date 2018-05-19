@@ -38,9 +38,7 @@ class FilmCarousel extends React.Component {
 											<h2>{f.title}</h2>
 					</a>
 				</div>
-				<div className={Styles.brief}
-					style={{background: this.props.config.foregroundColor}}
-				>
+				<div className={Styles.brief}>
 					<p>{f.synopsis}</p>
 				</div>
 			</div>

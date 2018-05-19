@@ -20,7 +20,7 @@ class App extends React.Component {
 					imageBorderRadius={"100px"}
 					transitionTime={700}
 					backgroundColor={"#000"}
-					foregroundColor={"#DC143C"}
+					foregroundColor={"linear-gradient(to right, #770011, #DC143C)"}
 					fontColor={"#FFF"}
 				/>
 			</div>
