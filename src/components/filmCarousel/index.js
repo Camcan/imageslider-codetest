@@ -33,7 +33,6 @@ class FilmCarousel extends React.Component {
 	render() {
 		return ( 
         		<div className={Styles.container} 
-				onClick={()=>this.animate('next', this.props.data)}
 				style={{
 					height: this.config.height,
 					width: this.config.width,

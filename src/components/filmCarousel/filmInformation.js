@@ -7,7 +7,7 @@ class FilmCarousel extends React.Component {
 		super(props);
 		this.state = {
 			index: 0,
-			hide: true
+			hide: false
 		}
 		this.renderText = this.renderText.bind(this);
 	}

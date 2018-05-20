@@ -4,13 +4,14 @@
 }
 
 .imageSliderContainer { 
-	height: 196px;
+	height: 198px;
 	max-width: 98%;
 	float: left;
 	position: relative;
 	left: 100%;
 	margin-left: -100%;
-	overflow: hidden
+	overflow: hidden;
+	box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
 .textOverlay {
 	margin-right: -100%;
@@ -34,6 +35,7 @@
 	margin: 5px auto;
 }
 .titleInfo {
+	filter: drop-shadow(0px 0px 3px rgba(0,0,0,0.5));  
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: flex-end;
@@ -91,7 +93,7 @@
 	}
 	.imageSliderContainer {
 		width: 75%;
-		height: 296px;
+		height: 298px;
 	}
 	.titleInfo {
 		margin-left: 50px;
