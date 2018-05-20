@@ -1,3 +1,11 @@
+@import url("https://necolas.github.io/normalize.css/8.0.0/normalize.css");
+
+h1, h2, h3, h4, a, p {
+	color: #FFF;
+	text-decoration: none;
+	font-family: sans-serif
+}
+
 .app {
 	background: #000
 }

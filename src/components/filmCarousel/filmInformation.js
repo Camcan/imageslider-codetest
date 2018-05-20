@@ -1,6 +1,8 @@
 import React from 'react'
 import Styles from './styles.css';
 
+
+
 class FilmCarousel extends React.Component {
     	constructor(props){
 		super(props);
@@ -24,6 +26,18 @@ class FilmCarousel extends React.Component {
 		}), this.props.transitionTime || 500);
 
 	}
+	svgLine(){
+		return <svg>
+  			<line 
+				x1="0" y1="0" 
+				x2="100%" y2="0" 
+				style={{
+					stroke: this.props.config.fontColor, 
+					strokeWidth:2
+				}} 
+			/>
+		</svg>
+	}
 	render() {
         	const f = this.props.data[this.state.index];
 		let overlayStyles = [
@@ -39,18 +53,13 @@ class FilmCarousel extends React.Component {
 					<a href={"http://" + f.link}>
 											<h2>{f.title}</h2>
 					</a>
+					{this.svgLine()}
 				</div>
 				<div className={Styles.brief}>
-					<svg>
-  						<line 
-							x1="0" y1="0" 
-							x2="100%" y2="0" 
-							style={{
-								stroke: this.props.config.fontColor, 
-								strokeWidth:2
-							}} 
-						/>
-					</svg>
+					<div className={Styles.logo}>
+						<img src="./logo.png"  alt="Logo Image" />
+					</div>
+						{this.svgLine()}	
 					<p style={{
 						backgroundImage: [
 							"linear-gradient(180deg, ",
