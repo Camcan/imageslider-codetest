@@ -52,6 +52,7 @@ class FilmCarousel extends React.Component {
 					<a href={"http://" + f.link}>
 											<h2>{f.title}</h2>
 					</a>
+					<div className={Styles.subInfo}></div>
 				</div>
 				<div className={Styles.brief}>
 					<div className={Styles.logo}>

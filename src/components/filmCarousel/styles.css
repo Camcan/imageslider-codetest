@@ -4,7 +4,7 @@
 }
 
 .imageSliderContainer { 
-	height: 198px;
+	height: 120px;
 	max-width: 98%;
 	float: left;
 	position: relative;
@@ -13,6 +13,7 @@
 	overflow: hidden;
 	box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
+
 .textOverlay {
 	margin-right: -100%;
 	opacity: 1;
@@ -35,12 +36,20 @@
 	flex-flow: column nowrap;
 	justify-content: flex-end;
 	min-width: 50%;
-	margin: 5px 20px;
+	margin: 5px 10px;
 	height: 196px;
+}
+@media screen and (min-width: 400px){
+	.imageSliderContainer {
+		min-height: 198px
+	}
 }
 .titleInfo h2 {
 	letter-spacing: -1px;
 	margin: 5px 0px;
+}
+.titleInfo .subInfo {
+	height: 40px;
 }
 .brief {
 	padding: 20px 0px;
@@ -93,7 +102,7 @@
 	}
 	.titleInfo {
 		margin-left: 50px;
-		height: 296px;
+		height: 293px;
 	}
 	.brief {
 		width: 25%;
