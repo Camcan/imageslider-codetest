@@ -62,9 +62,10 @@ class FilmCarousel extends React.Component {
 				/>	
 				<DotSelector containerClass={Styles.dotSelector}
 						toggle={(i)=>this.animate(i)}
-						fillColor={"#FFF"} 
-						activeColor={"#000"} 
-						dotRadius={5}
+						fillColor={"rgba(255,255,255,0.3)"} 
+						spacing={2}
+						activeColor={"#FFF"} 
+						dotRadius={3}
 						data={this.props.data}
 						index={this.state.index}
 				/>	

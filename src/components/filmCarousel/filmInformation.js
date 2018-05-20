@@ -32,7 +32,7 @@ class FilmCarousel extends React.Component {
 				x2="100%" y2="0" 
 				style={{
 					stroke: this.props.config.fontColor, 
-					strokeWidth:2
+					strokeWidth:1
 				}} 
 			/>
 		</svg>
@@ -52,7 +52,6 @@ class FilmCarousel extends React.Component {
 					<a href={"http://" + f.link}>
 											<h2>{f.title}</h2>
 					</a>
-					{this.svgLine()}
 				</div>
 				<div className={Styles.brief}>
 					<div className={Styles.logo}>

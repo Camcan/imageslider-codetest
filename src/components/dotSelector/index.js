@@ -31,6 +31,9 @@ class DotSelector extends React.Component {
 					onClick={()=>this.props.toggle(x)}
 					id={"dot" + x} 
 					className={Styles.dot}
+					style={{
+						padding: this.props.spacing + "px"
+					}}
 				>
 				<svg width={2*offset} height={2*offset}>
   					<circle 
