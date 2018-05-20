@@ -54,7 +54,7 @@ class FilmCarousel extends React.Component {
 
 					<ImageSlider 
 						width={"100%"}
-						height={"auto"}
+						height={"100%"}
 						data={this.props.data} 
 						index={this.state.index} 
 						transitionTime={this.config.transitionTime} 

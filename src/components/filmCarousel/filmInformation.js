@@ -32,14 +32,34 @@ class FilmCarousel extends React.Component {
 		].join(" ");
 
 		return (
-			<div className={overlayStyles}>
+			<div className={overlayStyles}
+				style={{color: this.props.config.fontColor}}
+			>
 				<div className={Styles.titleInfo}>
 					<a href={"http://" + f.link}>
 											<h2>{f.title}</h2>
 					</a>
 				</div>
 				<div className={Styles.brief}>
-					<p>{f.synopsis}</p>
+					<svg>
+  						<line 
+							x1="0" y1="0" 
+							x2="100%" y2="0" 
+							style={{
+								stroke: this.props.config.fontColor, 
+								strokeWidth:2
+							}} 
+						/>
+					</svg>
+					<p style={{
+						backgroundImage: [
+							"linear-gradient(180deg, ",
+							this.props.config.fontColor,
+							", transparent 100%)"
+						].join("")
+					}}>
+						{f.synopsis}
+					</p>
 				</div>
 			</div>
 		);

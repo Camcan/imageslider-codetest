@@ -40,9 +40,11 @@ class ImageSlider extends React.Component {
 	}
 	renderImages(){
 		return this.props.data.map((i)=>{
-			return <div className={Styles.img} style={{
-				width: this.state.containerWidth + "px"
-			}}>
+			return <div className={Styles.img}
+					style={{
+						width: this.state.containerWidth + "px"
+					}}
+				>
 				<img src={i.imageurl} title={i.title}/>
 			</div>
 		});
