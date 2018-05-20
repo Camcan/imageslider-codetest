@@ -1,0 +1,12 @@
+.container {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between
+}
+.dot {
+	max-width: 40px;
+	max-height: 40px;
+}
+.dot svg * {
+	transition: fill 0.3s ease-in-out;
+}

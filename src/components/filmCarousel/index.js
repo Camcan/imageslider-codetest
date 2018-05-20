@@ -2,6 +2,7 @@ import React from 'react'
 import Styles from './styles.css';
 import ImageSlider from '../imageSlider';
 import FilmInformation from './filmInformation.js';
+import DotSelector from '../dotSelector';
 
 class FilmCarousel extends React.Component {
     	constructor(props){
@@ -19,23 +20,15 @@ class FilmCarousel extends React.Component {
 			transitionType: this.props.transitionType || 'fade',
 			imageBorderRadiusBR: this.props.imageBorderRadius || 0
 		};
+		this.animate = this.animate.bind(this);
 
 	}
-	animate(direction, arr){
-		let newIndex = this.state.index;
-		switch(direction){
-				case 'next': newIndex++
-					break
-				case 'prev': newIndex--
-					break
-		};
-		if ((-1 < newIndex && newIndex < arr.length)){
-			console.log("newIndex:", newIndex)
+	animate(i){
+		if ((-1 < i) && (i < this.props.data.length) && (i !== this.state.index)){
 			this.setState({
-				index: newIndex
+				index: i
 			});
 		};
-		console.log("Animating:", direction)
 	}
 	render() {
 		return ( 
@@ -51,7 +44,7 @@ class FilmCarousel extends React.Component {
 				<div className={Styles.imageSliderContainer} style={{
 					borderBottomRightRadius: this.config.imageBorderRadiusBR
 				}}>
-
+	
 					<ImageSlider 
 						width={"100%"}
 						height={"100%"}
@@ -67,6 +60,14 @@ class FilmCarousel extends React.Component {
 					config={this.config}
 					index={this.state.index} 
 					transitionTime={this.config.transitionTime} 
+				/>	
+				<DotSelector containerClass={Styles.dotSelector}
+						toggle={(i)=>this.animate(i)}
+						fillColor={"#FFF"} 
+						activeColor={"#000"} 
+						dotRadius={5}
+						data={this.props.data}
+						index={this.state.index}
 				/>	
 			</div>
 		);

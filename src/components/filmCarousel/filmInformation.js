@@ -2,7 +2,6 @@ import React from 'react'
 import Styles from './styles.css';
 
 
-
 class FilmCarousel extends React.Component {
     	constructor(props){
 		super(props);

@@ -1,0 +1,59 @@
+import React from 'react'
+import Styles from './styles.css';
+
+class Dots extends React.Component {
+    	constructor(props){
+		super(props);
+		this.state = {
+			index: 0
+		}
+	}
+	componentWillReceiveProps(newProps){
+		if (newProps != this.props) {
+			this.animate(newProps.index);
+		}
+	}
+	componentDidMount(){
+		let containerWidth = document.getElementsByClassName(Styles.container)[0].offsetWidth;
+	}
+	animate(i){
+		this.setState({transition:true})
+		setTimeout(()=>this.setState({
+			index: i,
+			transition: false
+		}), this.props.transitionTime || 700);
+	}
+	renderDots(){
+		return this.props.data.map((i)=>{
+			const fillColor = ()=>{
+				return switch(i){
+				case this.state.index: 
+					return this.props.activeColor || "#FFF";
+					break
+				default: 
+					return this.props.fillColor || "#EEE";
+			}}
+			return <div id={"dot" + i} className={Styles.dot}
+					style={{
+						width: this.state.containerWidth + "px"
+					}}
+				>
+				<svg height="100" width="100">
+  					<circle cx="50" cy="50" r="40" 
+						stroke="black" 
+						stroke-width="3" 
+						fill={fillColor()} />
+				</svg>
+			</div>
+		});
+	}
+	render() { 
+		return ( 
+        		<div className={Styles.dotsContainer} style={containerStyles}>
+					{this.renderDots()}
+			</div>
+		);
+    	}
+};
+
+export default Dots;
