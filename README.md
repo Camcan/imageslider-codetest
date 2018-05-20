@@ -2,11 +2,14 @@ MASSIVE - Films Carousel React Component
 ===========================
 
 Code test completed using React, CSS Modules, Babel/ES6 & Browserify
+One day this component will be exported as a vanilla React npm/yarn module, though more time will be needed to optomize responsivity & document the customizeable aspects of the components.
+
+
 
 Input Materials:
+----------------
 The carousel serves film data & corresponding images placed in the `./data` folder. When the `npm run build` script is executed, `data/images` is copied to `public/` replacing the existing `public/images` directory (read below).  
-
-This is the expected format of the `./data/data.json` file: 
+To get started, replace the contents of `data/images` with your images & also the`./data/data.json` file with your datamap in the following format: 
 ```json
 {
 	"carousel":[
@@ -33,6 +36,4 @@ How to run:
 
 
 Author: @*camcan* (mr.campbell.hawkes@gmail.com)
-
-
 
